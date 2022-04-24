@@ -16,7 +16,10 @@ app.use("/api", require("./routes/jugador.routes"));
 
 // Error handling middleware
 app.use(function(err, req, res, next){
-    res.status(422).send(err);
+    if (typeof err == "string")
+        res.status(422).send(err);
+    else
+        res.status(422).send(err.name);
 })
 
 // Listen for requests
