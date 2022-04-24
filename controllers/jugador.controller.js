@@ -13,3 +13,13 @@ exports.create = async function(jugador) {
     await Jugador.create(jugador);
     return jugador;
 };
+
+exports.login = async function(user) {
+    try {
+        const data = await Jugador.findByPk(user.alias);
+        return (user.alias == data.dataValues.alias && user.password == data.dataValues.password);
+    }
+    catch (error) {
+        throw "Alias does not exist";
+    }
+};

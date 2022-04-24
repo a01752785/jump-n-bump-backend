@@ -12,7 +12,7 @@ db.sequelize.sync();
 app.use(bodyParser.json());
 
 // Initialize routes
-app.use("/api", require("./routes/jugador.routes"));
+app.use("/api", require("./routes/api.routes"));
 
 // Error handling middleware
 app.use(function(err, req, res, next){
@@ -20,7 +20,7 @@ app.use(function(err, req, res, next){
         res.status(422).send(err);
     else
         res.status(422).send(err.name);
-})
+});
 
 // Listen for requests
 app.listen(process.env.port || 4000, function() {
