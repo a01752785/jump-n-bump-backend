@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/a01752785/jump-n-bump-backend#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.0",
+    "tedious": "^14.4.0"
   }
 }
