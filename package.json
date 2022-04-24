@@ -1,0 +1,25 @@
+{
+  "name": "jump-n-bump-backend",
+  "version": "1.0.0",
+  "description": "Backend server of the Jump N' Bump Videogame",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a01752785/jump-n-bump-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a01752785/jump-n-bump-backend/issues"
+  },
+  "homepage": "https://github.com/a01752785/jump-n-bump-backend#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.19.0"
+  }
+}
