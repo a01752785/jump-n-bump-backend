@@ -12,5 +12,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.jugador = require("./jugador.model.js")(sequelize, Sequelize);
 db.attempt = require("./attempt.model.js")(sequelize, Sequelize);
+db.playerCollectible = require("./player.collectible.model")(sequelize, Sequelize);
 
 module.exports = db;
