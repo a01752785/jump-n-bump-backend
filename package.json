@@ -4,9 +4,9 @@
   "description": "Backend server of the Jump N' Bump Videogame",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "serve": "nodemon index",
-    "start": "node index"
+    "build": "node index"
   },
   "repository": {
     "type": "git",
