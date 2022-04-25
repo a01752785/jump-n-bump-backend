@@ -1,5 +1,6 @@
 const express = require("express");
 const JugadorController = require("../controllers/jugador.controller");
+const AttemptController = require("../controllers/attempt.controller");
 var router = express.Router();
 
 // Create a new player
@@ -26,6 +27,18 @@ router.post("/login", function(req, res, next) {
     JugadorController.login(user).then((hasAccess) => {
         if (hasAccess) res.send("Access granted");
         else res.send("Incorrect password");
+    }).catch(next);
+});
+
+router.post("/attempt", function(req, res, next) {
+    const attempt = {
+        aliasJugador: req.body.alias,
+        idNivel: req.body.idNivel,
+        puntuacion: req.body.puntuacion,
+        vidas: req.body.vidas
+    };
+    AttemptController.create(attempt).then(() => {
+        res.send("OK");
     }).catch(next);
 });
 

@@ -18,8 +18,12 @@ app.use("/api", require("./routes/api.routes"));
 app.use(function(err, req, res, next){
     if (typeof err == "string")
         res.status(422).send(err);
-    else
-        res.status(422).send(err.name);
+    else{
+        var errorStr = err.name;
+        if (err.name == "SequelizeForeignKeyConstraintError")
+            errorStr = errorStr + ":" + err.index;
+        res.status(422).send(errorStr);
+    }
 });
 
 // Listen for requests
