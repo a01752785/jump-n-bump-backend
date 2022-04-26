@@ -5,7 +5,8 @@ const Op = db.Sequelize.Op;
 // Create and save a new player
 exports.create = async function(jugador) {
     for (var key in jugador) {
-        if (typeof jugador[key] == "undefined") {
+        if (typeof jugador[key] == "undefined"
+            || jugador[key] == "") {
             throw "UndefinedFieldError";
         }
     }
