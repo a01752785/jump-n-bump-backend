@@ -28,7 +28,7 @@ router.post("/login", function(req, res, next) {
     };
     JugadorController.login(user).then((hasAccess) => {
         if (hasAccess) res.send("Access granted");
-        else res.send("Incorrect password");
+        else throw "Incorrect password";
     }).catch(next);
 });
 
