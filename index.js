@@ -39,7 +39,7 @@ app.use(function(err, req, res, next){
         var errorStr = err.name;
         if (err.name == "SequelizeForeignKeyConstraintError")
             errorStr = errorStr + ":" + err.index;
-        res.status(422).send(errStr);
+        res.status(422).send(errorStr);
     }
 });
 
