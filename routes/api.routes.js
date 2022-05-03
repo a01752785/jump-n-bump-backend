@@ -4,8 +4,6 @@ const AttemptController = require("../controllers/attempt.controller");
 const PlayerCollectibleController = require("../controllers/player.collectible.controller");
 var router = express.Router();
 
-// Create a new player
-
 /**
  * @swagger
  * components:
@@ -50,6 +48,62 @@ var router = express.Router();
  *              genero: Female
  *              nacionalidad: Peru
  *              password: pass123
+ *      User:
+ *          type: object
+ *          properties:
+ *              alias:
+ *                  type: string
+ *                  description: Alias of the user
+ *              password:
+ *                  type: string
+ *                  description: Password of the user
+ *          required:
+ *              - alias
+ *              - password
+ *          example:
+ *              alias: jumpnbump
+ *              password: pass123
+ * 
+ *      Attempt:
+ *          type: object
+ *          properties:
+ *              alias:
+ *                  type: string
+ *                  description: Alias of the user
+ *              idNivel:
+ *                  type: int
+ *                  description: ID of the level
+ *              puntuacion:
+ *                  type: int
+ *                  description: Score obtained
+ *              vidas:
+ *                  type: int
+ *                  description: Lives remaining
+ *          required:
+ *              - alias
+ *              - idNivel
+ *              - puntuacion
+ *              - vidas
+ *          example:
+ *              alias: jumpnbump
+ *              idNivel: 1
+ *              puntuacion: 75
+ *              vidas: 2
+ *      PlayerCollectible:
+ *          type: object
+ *          properties:
+ *              aliasJugador:
+ *                  type: string
+ *                  description: Alias of the user
+ *              idColeccionable:
+ *                  type: int
+ *                  description: ID of the collectible
+ *          required:
+ *              - aliasJugador
+ *              - idColeccionable
+ *          example:
+ *              alias: jumpnbump
+ *              idColeccionable: 3
  */
 
 /**
@@ -72,6 +126,7 @@ var router = express.Router();
  *              description: Error
  */
 
+// Create a new player
 router.post("/register", function(req, res, next) {
     const jugador = {
         alias: req.body.alias,
@@ -87,6 +142,26 @@ router.post("/register", function(req, res, next) {
     }).catch(next);
 });
 
+/**
+ * @swagger
+ * /api/login:
+ *  post:
+ *      summary: Authorize a player to login
+ *      tags: [User]
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      $ref: '#/components/schemas/User'
+ *      responses:
+ *          200:
+ *              description: Access granted
+ *          422:
+ *              description: Incorrect password
+ */
+
 // Login request
 router.post("/login", function(req, res, next) {
     const user = {
@@ -98,6 +173,26 @@ router.post("/login", function(req, res, next) {
         else throw "Incorrect password";
     }).catch(next);
 });
+
+/**
+ * @swagger
+ * /api/attempt:
+ *  post:
+ *      summary: Create a new attempt
+ *      tags: [Attempt]
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      $ref: '#/components/schemas/Attempt'
+ *      responses:
+ *          200:
+ *              description: OK
+ *          422:
+ *              description: Error
+ */
 
 // Create a new attempt
 router.post("/attempt", function(req, res, next) {
@@ -111,6 +206,26 @@ router.post("/attempt", function(req, res, next) {
         res.send("OK");
     }).catch(next);
 });
+
+/**
+ * @swagger
+ * /api/playercollectible:
+ *  post:
+ *      summary: Bound a collectible to a player
+ *      tags: [PlayerCollectible]
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      $ref: '#/components/schemas/PlayerCollectible'
+ *      responses:
+ *          200:
+ *              description: OK
+ *          422:
+ *              description: Error
+ */
 
 // Assign a collectible to a player
 router.post("/playercollectible", function(req, res, next) {
