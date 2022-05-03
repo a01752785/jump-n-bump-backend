@@ -20,6 +20,8 @@ const swaggerSpec = {
 // Set up express app
 const app = express();
 
+app.use(express.static("public"));
+
 // Set up database connection
 db.sequelize.sync();
 
