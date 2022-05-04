@@ -1,7 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 body {
     font-family: Raleway;
     color: #555;
-    background: #ff5252;
+    background: #150047;
     margin: 10px 30px;
 }
 
@@ -31,13 +36,12 @@ label {
     color: #fff;
     text-align: center;
     font-size: 48px;
+    background-color: white;
 }
 
 #homepage h1 {
     text-align: center;
 }
-
-
 
 ul {
     margin: 0;
@@ -67,4 +71,57 @@ span.false {
     height: 10px;
     background: #ff5252;
 }
+h1{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    
+}
+h2{
+    color:rgb(255, 255, 255);
+    border-left: 6px solid rgb(50, 204, 178);
+    
+}
+p{
+    text-align:left;
+    color: aliceblue;
+}
+h3{
+    text-align: right;
+    color: aliceblue;
+}
+
+nav ul{
+    background-color: darkgray;
+    width: 100%;
+    list-style-type: none;
+    text-align: center;
+}
+nav li{
+    display: inline-flex;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 150px;
+}
+nav li :hover{
+    background-color: black;
+}
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: black;
+    color: white;
+    margin-top: 40px;
+}
+footer p{
+    text-align: center;
+    padding: 50px;
+
+}
+
+
 
